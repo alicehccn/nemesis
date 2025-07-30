@@ -1,0 +1,22 @@
+import { Box, Tab, Tabs } from "@mui/material";
+import { EPIC_COLOR, EPIC_TAB, TAB_PROPS } from "../constants";
+import { BaseSyntheticEvent } from "react";
+
+type BasicTabProps = {
+  value: EPIC_COLOR;
+  handleChange: (e: BaseSyntheticEvent) => void;
+};
+
+export const BasicTab: React.FC<BasicTabProps> = ({ value, handleChange }) => {
+  return (
+    <Box sx={{ width: "100%" }}>
+      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Tabs value={value} onChange={handleChange} aria-label={value}>
+          {EPIC_TAB.map((tab, i) => (
+            <Tab key={i} {...TAB_PROPS(i)} />
+          ))}
+        </Tabs>
+      </Box>
+    </Box>
+  );
+};
