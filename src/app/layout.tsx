@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { dirname } from "path";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,10 +15,10 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Alice Huang",
-  description: "Alice Huang",
-  // icons: {
-  //   icon: "../../../public/logo.png"
-  // }
+  description: "Alice Huang's Profile",
+  icons: {
+    icon: "../logo.png"
+  }
 };
 
 export default function RootLayout({
