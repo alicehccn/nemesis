@@ -4,11 +4,12 @@ import {
   composeEpicImageUrl,
   EPIC_COLOR,
   EPIC_INTERVAL,
+  EPIC_TAB,
   fetchEpicApi,
+  TAB_PROPS,
 } from "./constants";
 import ReactModal from "react-modal";
-import { BasicTab } from "./mui/BasicTab";
-import { Box } from "@mui/material";
+import { Box, Tab, Tabs } from "@mui/material";
 import Image from "next/image";
 type ModalProps = {
   modalIsOpen: boolean;
@@ -104,7 +105,15 @@ export const Epic: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
       ariaHideApp={false}
     >
       <div className="epic">
-        <BasicTab handleChange={onTabChange} value={color} />
+        <Box sx={{ width: "100%" }}>
+      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+        <Tabs value={color} onChange={onTabChange} aria-label={color}>
+          {EPIC_TAB.map((tab, i) => (
+            <Tab key={i} {...TAB_PROPS(i)} />
+          ))}
+        </Tabs>
+      </Box>
+    </Box>
         <a target="_blank" href="https://epic.gsfc.nasa.gov">
           <Box
             display="flex"
