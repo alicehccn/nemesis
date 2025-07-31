@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import { useState, useEffect, useRef } from "react";
 import ReactModal from "react-modal";
 import {
@@ -77,10 +80,8 @@ export const Weather: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
       style={{
         content: {
           ...BASE_MODAL_STYLE,
-          width: "940px",
-          maxWidth: "95%",
-          height: "auto",
-          maxHeight: "95%",
+          width: "1080px",
+          maxWidth: "100%",
         },
       }}
       contentLabel="Weather Modal"
@@ -161,9 +162,7 @@ type MapProps = {
 };
 
 const Mapbox: React.FC<MapProps> = ({ data, darkMode, alertGroup }) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapContainerRef = useRef<any>({});
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapRef = useRef<any>({});
   const [selectedFeature, setSelectedFeature] = useState<Feature | null>();
   const [point, setPoint] = useState<Point>();
@@ -201,7 +200,6 @@ const Mapbox: React.FC<MapProps> = ({ data, darkMode, alertGroup }) => {
         });
       alertGroup && map.addLayer(CIRCLE_LAYER(MAP_CIRCLE_COLOR));
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
       map.on("click", "alerts-heat", (e: any) => {
         setSelectedFeature(e.features[0]);
         setPoint(e.point);

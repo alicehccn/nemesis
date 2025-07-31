@@ -7,6 +7,7 @@ import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs, { Dayjs } from "dayjs";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Image from "next/image";
 
 type AssetResponse = {
   date: string;
@@ -54,9 +55,6 @@ export const APOD: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
         content: {
           ...BASE_MODAL_STYLE,
           width: "min-content",
-          maxWidth: "100%",
-          height: "fit-content",
-          maxHeight: "100%",
         },
       }}
       contentLabel="APOD Modal"
@@ -73,7 +71,7 @@ export const APOD: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
           </AccordionDetails>
         </Accordion>
 
-        {asset?.media_type === "image" && <img alt="apod" src={asset?.url}/>}
+        {asset?.media_type === "image" && <Image alt="apod" src={asset?.url} width={1000} height={1000}/>}
         {asset?.media_type === "html" && (
           <embed type="text/html" src={asset?.url} />
         )}

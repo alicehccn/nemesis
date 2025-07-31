@@ -6,6 +6,7 @@ import { Weather } from "./Weather";
 import { Epic } from "./Epic";
 import { useState } from "react";
 import { Wiki } from "./Wiki";
+import Image from "next/image";
 
 const App: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -15,17 +16,18 @@ const App: React.FC = () => {
       <div className="App-header">
         <div className="social">
           <a href="mailto:alicehccn@gmail.com">
-            <img src="./email.png" />
+            <Image width={25} height={25} src="/email.png" alt="email"/>
           </a>
           <a target="_blank" href="https://www.linkedin.com/in/alicehccn/">
-            <img src="./linkedin.png" />
+            <Image width={25} height={25} src="/linkedin.png" alt="linkedIn"/>
           </a>
           <a target="_blank" href="https://www.github.com/alicehccn/">
-            <img src="./github.png" />
+            <Image width={25} height={25} src="/github.png" alt="linkedIn"/>
           </a>
         </div>
         <div className="logo">
-          <img src="./logo2.png" alt="logo" />
+            <Image width={250} height={100} src="/logo2.png" alt="alice-huang"/>
+
         </div>
       </div>
       <div className="App-content">

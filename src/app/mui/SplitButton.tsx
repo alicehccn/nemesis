@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -9,6 +8,7 @@ import Popper from "@mui/material/Popper";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import { MENU_OPTIONS } from "../constants";
+import { Fragment, useRef, useState } from "react";
 
 type SplitButtonProps = {
   setSelectedIndex: (arg0: number) => void;
@@ -19,8 +19,8 @@ export const SplitButton: React.FC<SplitButtonProps> = ({
   selectedIndex,
   setSelectedIndex,
 }) => {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef<HTMLDivElement>(null);
+  const [open, setOpen] = useState(false);
+  const anchorRef = useRef<HTMLDivElement>(null);
 
   const handleClick = () => {
     handleToggle();
@@ -50,7 +50,7 @@ export const SplitButton: React.FC<SplitButtonProps> = ({
   };
 
   return (
-    <React.Fragment>
+    <Fragment>
       <ButtonGroup
         variant="contained"
         ref={anchorRef}
@@ -107,6 +107,6 @@ export const SplitButton: React.FC<SplitButtonProps> = ({
           </Grow>
         )}
       </Popper>
-    </React.Fragment>
+    </Fragment>
   );
 };

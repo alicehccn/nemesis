@@ -1,4 +1,4 @@
-import { format, subDays } from "date-fns";
+import { format } from "date-fns";
 import { Layer, LngLatLike } from "mapbox-gl";
 
 export const APOD_HOMEPAGE = "https://apod.nasa.gov/apod/astropix.html";
@@ -204,9 +204,9 @@ export const WeatherEmoji = (label: string) => {
   return table[label];
 };
 
-export const DEFAULT_MAP_CENTER: LngLatLike = [-98.04, 38.907];
+export const DEFAULT_MAP_CENTER: LngLatLike = [-98.04, 37.907];
 
-export const DEFAULT_MAP_ZOOM: number = 3.7;
+export const DEFAULT_MAP_ZOOM: number = 4;
 
 export const MAP_CIRCLE_COLOR = "#0F52BA";
 

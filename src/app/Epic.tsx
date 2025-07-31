@@ -9,6 +9,7 @@ import {
 import ReactModal from "react-modal";
 import { BasicTab } from "./mui/BasicTab";
 import { Box } from "@mui/material";
+import Image from "next/image";
 type ModalProps = {
   modalIsOpen: boolean;
   closeModal: () => void;
@@ -47,7 +48,7 @@ export const Epic: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
         )
         .catch((error) => console.error(error));
     }
-  }, [color]);
+  }, [color, albums]);
 
   function useInterval(callback: () => void, delay: number) {
     const savedCallback = useRef(callback);
@@ -97,8 +98,6 @@ export const Epic: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
         content: {
           ...BASE_MODAL_STYLE,
           maxWidth: "800px",
-          height: "auto",
-          maxHeight: "100%",
         },
       }}
       contentLabel="EPIC Modal"
@@ -113,7 +112,7 @@ export const Epic: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
             width="100%"
             position="fixed"
             bottom="0"
-            padding="10px 0"
+            margin="5px 0"
             color="#808080"
             fontSize={14}
           >
@@ -122,7 +121,7 @@ export const Epic: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
             <div>{asset?.date}</div>
           </Box>
         </a>
-        <img src={composeEpicImageUrl(asset.image, asset.date, color)} />
+        <Image src={composeEpicImageUrl(asset.image, asset.date, color)} alt="epic" width={1000} height={1000} />
       </div>
     </ReactModal>
   );
