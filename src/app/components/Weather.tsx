@@ -34,13 +34,9 @@ import {
   Button,
   IconButton,
 } from "@mui/material";
+import { ModalProps } from "../types";
 
-type ModalProps = {
-  modalIsOpen: boolean;
-  closeModal: () => void;
-};
-
-type AlertGroup = {
+interface AlertGroup {
   features: Feature[];
   updated: string;
   type: "FeatureCollection";

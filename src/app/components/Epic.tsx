@@ -11,12 +11,9 @@ import {
 import ReactModal from "react-modal";
 import { Box, Tab, Tabs } from "@mui/material";
 import Image from "next/image";
-type ModalProps = {
-  modalIsOpen: boolean;
-  closeModal: () => void;
-};
+import { ModalProps } from "../types";
 
-type EpicReponse = {
+interface EpicReponse {
   caption: string;
   date: string;
   identifier: string;

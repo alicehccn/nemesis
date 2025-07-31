@@ -10,7 +10,7 @@ import MenuList from "@mui/material/MenuList";
 import { MENU_OPTIONS } from "../constants";
 import { Fragment, useRef, useState } from "react";
 
-type SplitButtonProps = {
+interface SplitButtonProps {
   setSelectedIndex: (arg0: number) => void;
   selectedIndex: number;
 };

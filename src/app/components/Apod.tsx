@@ -8,8 +8,9 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs, { Dayjs } from "dayjs";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Image from "next/image";
+import { ModalProps } from "../types";
 
-type AssetResponse = {
+interface ApodResponse {
   date: string;
   explanation: string;
   hdurl: string;
@@ -20,14 +21,9 @@ type AssetResponse = {
   copyright?: string;
 };
 
-type ModalProps = {
-  modalIsOpen: boolean;
-  closeModal: () => void;
-};
-
 export const APOD: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
   const today = new Date();
-  const [asset, setAsset] = useState<AssetResponse>();
+  const [asset, setAsset] = useState<ApodResponse>();
   const [value, setValue] = useState<Dayjs>(dayjs(asset?.date) ?? dayjs(today));
 
   const [assetIndex, setAssetIndex] = useState(1);
