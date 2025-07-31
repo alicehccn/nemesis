@@ -1,11 +1,11 @@
 'use client'
 
-import { APOD } from "./Apod";
-import { SplitButton } from "./mui/SplitButton";
-import { Weather } from "./Weather";
-import { Epic } from "./Epic";
+import { APOD } from "./components/Apod";
+import { SplitButton } from "./components/Menu";
+import { Weather } from "./components/Weather";
+import { Epic } from "./components/Epic";
 import { useState } from "react";
-import { Wiki } from "./Wiki";
+import { Wiki } from "./components/Wiki";
 import Image from "next/image";
 
 const App: React.FC = () => {
@@ -27,7 +27,6 @@ const App: React.FC = () => {
         </div>
         <div className="logo">
             <Image width={250} height={100} src="/logo2.png" alt="alice-huang"/>
-
         </div>
       </div>
       <div className="App-content">
