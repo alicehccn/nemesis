@@ -294,8 +294,3 @@ a.collapse {
 .expand {
   margin: auto;
 }
-
-
-.MuiCardMedia-root {
-    width: fit-content !important;
-  }

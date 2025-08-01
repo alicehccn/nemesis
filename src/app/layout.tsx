@@ -16,8 +16,8 @@ export const metadata: Metadata = {
   title: "Alice Huang",
   description: "Alice Huang's Profile",
   icons: {
-    icon: "../logo.png"
-  }
+    icon: "../logo.png",
+  },
 };
 
 export default function RootLayout({

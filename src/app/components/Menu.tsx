@@ -13,7 +13,7 @@ import { Fragment, useRef, useState } from "react";
 interface SplitButtonProps {
   setSelectedIndex: (arg0: number) => void;
   selectedIndex: number;
-};
+}
 
 export const SplitButton: React.FC<SplitButtonProps> = ({
   selectedIndex,

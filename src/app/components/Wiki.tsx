@@ -1,31 +1,41 @@
-import {  useState, useEffect } from "react";
-import { BASE_MODAL_STYLE, fetchWikiApi } from "../constants";
+import { useState, useEffect } from "react";
+import { BASE_MODAL_STYLE, fetchWikiApi, formatDateTime } from "../constants";
 import ReactModal from "react-modal";
-import { Box } from "@mui/material";
-type ModalProps = {
-  modalIsOpen: boolean;
-  closeModal: () => void;
-};
+import { ModalProps } from "../types";
+
+interface WikiLink {
+  content_urls: [key: string];
+  coordinates: { lat: number; lon: number };
+  description: string;
+  extract: string;
+  extract_html: string;
+  normalizedtitle: string;
+  originalimage: { source: string };
+  pageId: string;
+  thumbnail: { source: string };
+  timestamp: string;
+  wikibase_item: string | number;
+}
 
 export const Wiki: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
-  const [pages, setPages] = useState<[key: string][]>();
+  const [page, setPage] = useState<WikiLink>();
 
   useEffect(() => {
-    if (!pages) {
+    if (!page) {
       fetch(fetchWikiApi())
         .then((response) =>
           response?.json().then((json) => {
-            setPages(json.onthisday);
+            setPage(json.tfa);
           }),
         )
         .catch((error) => console.error(error));
     }
-  }, [pages]);
+  }, [page]);
 
-  if (!pages) {
+  if (!page) {
     return null;
   }
-
+  console.log(page);
   return (
     <ReactModal
       isOpen={modalIsOpen}
@@ -41,18 +51,7 @@ export const Wiki: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
       contentLabel="Wiki Modal"
       ariaHideApp={false}
     >
-      <div className="wiki">
-        <Box
-          display="flex"
-          justifyContent="space-evenly"
-          width="100%"
-          position="fixed"
-          bottom="0"
-          padding="10px 0"
-          color="#808080"
-          fontSize={14}
-        ></Box>
-      </div>
+      <div className="wiki"></div>
     </ReactModal>
   );
 };

@@ -19,7 +19,7 @@ interface ApodResponse {
   title: string;
   url: string;
   copyright?: string;
-};
+}
 
 export const APOD: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
   const today = new Date();
@@ -67,7 +67,9 @@ export const APOD: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
           </AccordionDetails>
         </Accordion>
 
-        {asset?.media_type === "image" && <Image alt="apod" src={asset?.url} width={1000} height={1000}/>}
+        {asset?.media_type === "image" && (
+          <Image alt="apod" src={asset?.url} width={1000} height={1000} />
+        )}
         {asset?.media_type === "html" && (
           <embed type="text/html" src={asset?.url} />
         )}

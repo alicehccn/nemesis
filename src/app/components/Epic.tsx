@@ -19,7 +19,7 @@ interface EpicReponse {
   identifier: string;
   image: string;
   centroid_coordinates: { lat: number; lon: number };
-};
+}
 
 export const Epic: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
   const [assets, setAssets] = useState<EpicReponse[]>([]);
@@ -103,14 +103,14 @@ export const Epic: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
     >
       <div className="epic">
         <Box sx={{ width: "100%" }}>
-      <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-        <Tabs value={color} onChange={onTabChange} aria-label={color}>
-          {EPIC_TAB.map((tab, i) => (
-            <Tab key={i} {...TAB_PROPS(i)} />
-          ))}
-        </Tabs>
-      </Box>
-    </Box>
+          <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+            <Tabs value={color} onChange={onTabChange} aria-label={color}>
+              {EPIC_TAB.map((tab, i) => (
+                <Tab key={i} {...TAB_PROPS(i)} />
+              ))}
+            </Tabs>
+          </Box>
+        </Box>
         <a target="_blank" href="https://epic.gsfc.nasa.gov">
           <Box
             display="flex"
@@ -127,7 +127,12 @@ export const Epic: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
             <div>{asset?.date}</div>
           </Box>
         </a>
-        <Image src={composeEpicImageUrl(asset.image, asset.date, color)} alt="epic" width={1000} height={1000} />
+        <Image
+          src={composeEpicImageUrl(asset.image, asset.date, color)}
+          alt="epic"
+          width={1000}
+          height={1000}
+        />
       </div>
     </ReactModal>
   );

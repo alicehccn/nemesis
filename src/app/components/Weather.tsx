@@ -40,7 +40,7 @@ interface AlertGroup {
   features: Feature[];
   updated: string;
   type: "FeatureCollection";
-};
+}
 
 export const Weather: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
   const [alerts, setAlerts] = useState<AlertGroup>();

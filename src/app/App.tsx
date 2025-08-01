@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { APOD } from "./components/Apod";
 import { SplitButton } from "./components/Menu";
@@ -16,17 +16,17 @@ const App: React.FC = () => {
       <div className="App-header">
         <div className="social">
           <a href="mailto:alicehccn@gmail.com">
-            <Image width={25} height={25} src="/email.png" alt="email"/>
+            <Image width={25} height={25} src="/email.png" alt="email" />
           </a>
           <a target="_blank" href="https://www.linkedin.com/in/alicehccn/">
-            <Image width={25} height={25} src="/linkedin.png" alt="linkedIn"/>
+            <Image width={25} height={25} src="/linkedin.png" alt="linkedIn" />
           </a>
           <a target="_blank" href="https://www.github.com/alicehccn/">
-            <Image width={25} height={25} src="/github.png" alt="linkedIn"/>
+            <Image width={25} height={25} src="/github.png" alt="linkedIn" />
           </a>
         </div>
         <div className="logo">
-            <Image width={250} height={100} src="/logo2.png" alt="alice-huang"/>
+          <Image width={250} height={100} src="/logo2.png" alt="alice-huang" />
         </div>
       </div>
       <div className="App-content">
