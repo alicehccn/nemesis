@@ -5,7 +5,6 @@ import { SplitButton } from "./components/Menu";
 import { Weather } from "./components/Weather";
 import { Epic } from "./components/Epic";
 import { useState } from "react";
-import { Wiki } from "./components/Wiki";
 import Image from "next/image";
 
 const App: React.FC = () => {
@@ -40,10 +39,6 @@ const App: React.FC = () => {
         />
         <Weather
           modalIsOpen={selectedIndex === 3}
-          closeModal={() => setSelectedIndex(0)}
-        />
-        <Wiki
-          modalIsOpen={selectedIndex === 4}
           closeModal={() => setSelectedIndex(0)}
         />
         <SplitButton

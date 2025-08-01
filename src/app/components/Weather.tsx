@@ -76,8 +76,9 @@ export const Weather: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
       style={{
         content: {
           ...BASE_MODAL_STYLE,
-          width: "1080px",
+          width: "1000px",
           maxWidth: "100%",
+          height: "max-content",
         },
       }}
       contentLabel="Weather Modal"

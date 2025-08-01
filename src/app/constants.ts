@@ -13,9 +13,6 @@ export const fetchApodApi = (date: Date) =>
 
 export const fetchWeatherApi = () => `https://api.weather.gov/alerts/active`;
 
-export const fetchWikiApi = () =>
-  `https://api.wikimedia.org/feed/v1/wikipedia/en/featured/${format(new Date(), "yyyy/MM/dd")}`;
-
 export const fetchEpicApi = (color: string) =>
   `https://epic.gsfc.nasa.gov/api/${color}?date=${format(new Date(), "yyyy/MM/dd")}`;
 
@@ -31,7 +28,6 @@ export const MENU_OPTIONS = [
   "APOD (Astronomy Picture of the Day)",
   "EPIC (Earth Polychromatic Imaging Camera)",
   "NOAA (National Oceanic & Atmosphere Adminstration)",
-  "On This Day (Wikimedia)",
 ];
 
 export const EPIC_INTERVAL = 3600;
@@ -204,9 +200,9 @@ export const WeatherEmoji = (label: string) => {
   return table[label];
 };
 
-export const DEFAULT_MAP_CENTER: LngLatLike = [-98.04, 37.907];
+export const DEFAULT_MAP_CENTER: LngLatLike = [-98.04, 38.907];
 
-export const DEFAULT_MAP_ZOOM: number = 4;
+export const DEFAULT_MAP_ZOOM: number = 3.6;
 
 export const MAP_CIRCLE_COLOR = "#0F52BA";
 
