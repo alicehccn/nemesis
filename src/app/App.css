@@ -159,7 +159,6 @@ a.collapse {
   h4 {
     text-align: center;
     width: 100%;
-    color: gray;
     margin: 10px 0;
   }
   img {
@@ -167,6 +166,7 @@ a.collapse {
     margin-bottom: 10px;
     max-height: 80vh;
     max-width: 100%;
+    height: fit-content;
   }
 
   iframe,

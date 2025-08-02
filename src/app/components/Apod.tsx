@@ -51,6 +51,7 @@ export const APOD: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
         content: {
           ...BASE_MODAL_STYLE,
           width: "min-content",
+          height: "auto",
         },
       }}
       contentLabel="APOD Modal"
@@ -68,7 +69,7 @@ export const APOD: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
         </Accordion>
 
         {asset?.media_type === "image" && (
-          <Image alt="apod" src={asset?.url} width={1000} height={1000} />
+          <Image alt="apod" src={asset?.url} width={1000} height={500} />
         )}
         {asset?.media_type === "html" && (
           <embed type="text/html" src={asset?.url} />
