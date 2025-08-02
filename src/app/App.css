@@ -3,11 +3,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: "Gill Sans Extrabold", sans-serif;
   background-image: url("../../public/desk.jpg");
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(7px);
   background-size: cover;
   background-repeat: no-repeat;
   line-height: 1.2;
   color: #141414;
+  margin: 0;
 }
 
 ol,
@@ -82,7 +83,8 @@ a.collapse {
       padding: 40px 50px 20px;
       text-align: right;
       img {
-        width: 250px;
+        width: 300px;
+        height: auto;
 
         @media screen and (max-width: 600px) {
           width: 100%;
