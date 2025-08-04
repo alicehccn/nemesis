@@ -83,6 +83,7 @@ a.collapse {
     .MuiInputBase-root,
     .MuiTextField-root {
       width: 400px;
+      margin-bottom: 20px;
       button {
         padding: 15px;
         border-color: #808080 !important;
