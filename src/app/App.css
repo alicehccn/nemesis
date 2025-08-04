@@ -51,48 +51,22 @@ a.collapse {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
+  max-height: 100vh;
   overflow-x: hidden;
   overflow-y: auto;
 
   .App-header {
-    display: flex;
-    justify-content: end;
-    flex-direction: row;
     width: 100%;
-    margin: 0;
-    .social {
-      text-align: right;
-      display: flex;
-      margin-top: 100px;
-      padding: 20px;
-      width: max-content;
-      img,
-      svg {
-        height: 30px;
-        width: 30px;
-        margin: -5px 20px;
-      }
-      @media screen and (max-width: 600px) {
-        display: none;
-      }
-    }
 
     .logo {
-      padding: 40px 50px 20px;
+      margin: 30px;
       text-align: right;
       img {
-        width: 300px;
+        width: 400px;
+        max-width: 100%;
         height: auto;
-
-        @media screen and (max-width: 600px) {
-          width: 100%;
-        }
-      }
-
-      @media screen and (max-width: 600px) {
-        width: 100%;
       }
     }
   }
@@ -100,30 +74,15 @@ a.collapse {
   .App-content {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 95%;
     margin: auto;
     align-items: end;
     justify-content: space-between;
-    .skill-chart-container {
-      .skill-chart {
-        @media screen and (max-width: 600px) {
-          display: none !important;
-        }
-      }
-      .legend2 {
-        width: 99%;
-        text-align: right;
-        @media screen and (max-width: 600px) {
-          display: none !important;
-        }
-      }
-    }
 
     .MuiButtonGroup-root,
     .MuiInputBase-root,
     .MuiTextField-root {
-      margin: 50px 0 10px;
-      width: 430px;
+      width: 400px;
       button {
         padding: 15px;
         border-color: #808080 !important;
@@ -140,14 +99,21 @@ a.collapse {
         width: 100%;
       }
     }
+    .social {
+      text-align: center;
+      width: 400px;
+      img,
+      svg {
+        margin: 20px;
+      }
+    }
   }
 
   footer {
     color: #808080;
     font-size: 12px;
-    text-align: right;
-    width: 90%;
-    margin: 0 auto;
+    text-align: center;
+    line-height: 2;
   }
 }
 
