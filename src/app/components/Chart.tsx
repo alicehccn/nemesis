@@ -8,9 +8,9 @@ export default function Chart() {
   return (
     <RadarChart
       suppressHydrationWarning
-      height={500}
-      width={430}
-      margin={30}
+      height={450}
+      width={400}
+      margin={40}
       series={[
         {
           label: "Backend",
@@ -34,7 +34,7 @@ export default function Chart() {
           "Typescript\nNodeJS\nPython",
           "React\nHTML\nCSS\nWebpack",
           "HTTP\ngRPC\nMQ",
-          "Access\nContnol",
+          "Auth\nOAuth",
           "SQL\nNoSQL",
           "Git\nAWS\nVercel\nDocker\nHeroku",
         ],
