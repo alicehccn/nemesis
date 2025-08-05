@@ -6,6 +6,7 @@ import { Weather } from "./components/Weather";
 import { Epic } from "./components/Epic";
 import { useState } from "react";
 import Image from "next/image";
+import Chart from "./components/Chart";
 
 const App: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -30,6 +31,7 @@ const App: React.FC = () => {
           modalIsOpen={selectedIndex === 3}
           closeModal={() => setSelectedIndex(0)}
         />
+        <Chart />
         <SplitButton
           setSelectedIndex={setSelectedIndex}
           selectedIndex={selectedIndex}

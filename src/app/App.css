@@ -55,13 +55,13 @@ a.collapse {
   height: 100vh;
   max-height: 100vh;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: scroll;
 
   .App-header {
     width: 100%;
 
     .logo {
-      margin: 40px;
+      margin: 40px 60px;
       text-align: right;
       img {
         width: 400px;
@@ -75,14 +75,14 @@ a.collapse {
     display: flex;
     flex-direction: column;
     width: 95%;
-    margin: auto;
+    margin: 40px auto;
     align-items: end;
     justify-content: space-between;
 
     .MuiButtonGroup-root,
     .MuiInputBase-root,
     .MuiTextField-root {
-      width: 400px;
+      width: 430px;
       margin-bottom: 20px;
       button {
         padding: 15px;
@@ -102,7 +102,8 @@ a.collapse {
     }
     .social {
       text-align: center;
-      width: 400px;
+      width: 430px;
+      margin-top: 20px;
       img,
       svg {
         margin: 20px;
@@ -113,8 +114,7 @@ a.collapse {
   footer {
     color: #808080;
     font-size: 12px;
-    text-align: center;
-    line-height: 2;
+    margin: 10px;
   }
 }
 
@@ -262,4 +262,10 @@ a.collapse {
 
 .expand {
   margin: auto;
+}
+
+.MuiChartsWrapper-root {
+  @media screen and (max-width: 600px) {
+    display: none !important;
+  }
 }
