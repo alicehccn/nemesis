@@ -274,15 +274,96 @@ a.collapse {
   }
 }
 
+.clock-container {
+  width: 50%;
+}
+
 .clock {
   width: 480px;
   height: 480px;
   border: 12px solid #808080;
   border-radius: 50%;
   margin: auto;
+  position: relative;
+
+  time:nth-child(1) {
+    --_d: 270deg;
+  }
+  time:nth-child(2) {
+    --_d: 300deg;
+  }
+  time:nth-child(3) {
+    --_d: 330deg;
+  }
+  time:nth-child(4) {
+    --_d: 0deg;
+  }
+  time:nth-child(5) {
+    --_d: 30deg;
+  }
+  time:nth-child(6) {
+    --_d: 60deg;
+  }
+  time:nth-child(7) {
+    --_d: 90deg;
+  }
+  time:nth-child(8) {
+    --_d: 120deg;
+  }
+  time:nth-child(9) {
+    --_d: 150deg;
+  }
+  time:nth-child(10) {
+    --_d: 180deg;
+  }
+  time:nth-child(11) {
+    --_d: 210deg;
+  }
+  time:nth-child(12) {
+    --_d: 240deg;
+  }
+
+  time {
+    --_w: 480px;
+    --_r: calc((var(--_w) - var(--_sz)) / 2);
+
+    --_x: calc(var(--_r) + (var(--_r) * cos(var(--_d))));
+    --_y: calc(var(--_r) + (var(--_r) * sin(var(--_d))));
+    --_sz: 6cqi;
+    display: grid;
+    height: var(--_sz);
+    left: var(--_x);
+    place-content: center;
+    position: absolute;
+    top: var(--_y);
+    width: var(--_sz);
+  }
+}
+.second {
+  border: 2px solid #808080;
+  width: 240px;
+  vertical-align: middle;
+  bottom: 240px;
+  position: absolute;
+  transform-origin: top right;
+  -webkit-animation: spin 60s linear infinite;
+  -moz-animation: spin 60s linear infinite;
+  animation: spin 60s linear infinite;
 }
 
-.clock-container {
-  padding: 0 1em;
-  width: 50%;
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
