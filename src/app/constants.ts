@@ -31,6 +31,7 @@ export const MENU_OPTIONS = [
 ];
 
 export const EPIC_INTERVAL = 3600;
+export const CLOCK_INTERVAL = 1000;
 
 export enum EPIC_COLOR {
   NATURAL = "natural",

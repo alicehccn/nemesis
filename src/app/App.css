@@ -2,10 +2,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: "Gill Sans Extrabold", sans-serif;
-  background-image: url("../../public/desk.jpg");
+  /* background-image: url("../../public/desk.jpg");
   backdrop-filter: blur(7px);
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   line-height: 1.2;
   color: #141414;
   margin: 0;
@@ -272,4 +272,17 @@ a.collapse {
   @media screen and (max-width: 600px) {
     display: none !important;
   }
+}
+
+.clock {
+  width: 480px;
+  height: 480px;
+  border: 12px solid #808080;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.clock-container {
+  padding: 0 1em;
+  width: 50%;
 }

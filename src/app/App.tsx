@@ -6,6 +6,7 @@ import { Weather } from "./components/Weather";
 import { Epic } from "./components/Epic";
 import { useState } from "react";
 import Image from "next/image";
+import Clock from "./components/Clock";
 
 const App: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -17,6 +18,7 @@ const App: React.FC = () => {
           <Image width={200} height={100} src="/logo2.png" alt="alice-huang" />
         </div>
       </div>
+      <Clock />
       <div className="App-content">
         <APOD
           modalIsOpen={selectedIndex === 1}
