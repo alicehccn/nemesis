@@ -28,7 +28,9 @@ const Clock: React.FC = () => {
   return (
     <div className="clock-container">
       <div className="clock">
-        {CLOCK_NUMERALS.map((num) => <time key={num}>{num}</time>)}
+        {CLOCK_NUMERALS.map((num) => (
+          <time key={num}>{num}</time>
+        ))}
         <div className="center">
           <div className="second"></div>
         </div>

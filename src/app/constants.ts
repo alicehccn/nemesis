@@ -229,4 +229,4 @@ export const CLOCK_NUMERALS = [
   "IX",
   "X",
   "XI",
-]
+];

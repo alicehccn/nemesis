@@ -285,14 +285,17 @@ a.collapse {
   border-radius: 50%;
   margin: auto;
   position: relative;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: large;
+  color: #808080;
+  background-color: #1a2224;
 
   time {
     --_w: 480px;
     --_r: calc((var(--_w) - var(--_sz)) / 2);
-
     --_x: calc(var(--_r) + (var(--_r) * cos(var(--_d))));
     --_y: calc(var(--_r) + (var(--_r) * sin(var(--_d))));
-    --_sz: 6cqi;
+    --_sz: 5cqi;
     display: grid;
     height: var(--_sz);
     left: var(--_x);
@@ -341,8 +344,8 @@ a.collapse {
 }
 
 .center {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   background-color: #808080;
   border-radius: 50%;
   position: absolute;
