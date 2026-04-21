@@ -40,7 +40,9 @@ const Clock: React.FC = () => {
         <time dateTime="9:00">9</time>
         <time dateTime="10:00">10</time>
         <time dateTime="11:00">11</time>
-        <div className="second"></div>
+        <div className="center">
+          <div className="second"></div>
+        </div>
       </div>
     </div>
   );

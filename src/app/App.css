@@ -275,16 +275,32 @@ a.collapse {
 }
 
 .clock-container {
-  width: 50%;
+  width: 60%;
 }
 
 .clock {
   width: 480px;
   height: 480px;
-  border: 12px solid #808080;
+  border: 10px solid #808080;
   border-radius: 50%;
   margin: auto;
   position: relative;
+
+  time {
+    --_w: 480px;
+    --_r: calc((var(--_w) - var(--_sz)) / 2);
+
+    --_x: calc(var(--_r) + (var(--_r) * cos(var(--_d))));
+    --_y: calc(var(--_r) + (var(--_r) * sin(var(--_d))));
+    --_sz: 6cqi;
+    display: grid;
+    height: var(--_sz);
+    left: var(--_x);
+    place-content: center;
+    position: absolute;
+    top: var(--_y);
+    width: var(--_sz);
+  }
 
   time:nth-child(1) {
     --_d: 270deg;
@@ -322,30 +338,25 @@ a.collapse {
   time:nth-child(12) {
     --_d: 240deg;
   }
-
-  time {
-    --_w: 480px;
-    --_r: calc((var(--_w) - var(--_sz)) / 2);
-
-    --_x: calc(var(--_r) + (var(--_r) * cos(var(--_d))));
-    --_y: calc(var(--_r) + (var(--_r) * sin(var(--_d))));
-    --_sz: 6cqi;
-    display: grid;
-    height: var(--_sz);
-    left: var(--_x);
-    place-content: center;
-    position: absolute;
-    top: var(--_y);
-    width: var(--_sz);
-  }
 }
-.second {
-  border: 2px solid #808080;
-  width: 240px;
-  vertical-align: middle;
-  bottom: 240px;
+
+.center {
+  width: 10px;
+  height: 10px;
+  background-color: gray;
+  border-radius: 50%;
   position: absolute;
-  transform-origin: top right;
+  bottom: 50%;
+  left: 50%;
+}
+
+.second {
+  border: 1px solid red;
+  width: 200px;
+  bottom: 50%;
+  left: 50%;
+  position: absolute;
+  transform-origin: top left;
   -webkit-animation: spin 60s linear infinite;
   -moz-animation: spin 60s linear infinite;
   animation: spin 60s linear infinite;
