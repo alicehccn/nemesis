@@ -215,3 +215,18 @@ export const BASE_MODAL_STYLE = {
   marginRight: "-50%",
   transform: "translate(-50%, -50%)",
 };
+
+export const CLOCK_NUMERALS = [
+  "XII",
+  "I",
+  "II",
+  "III",
+  "IV",
+  "V",
+  "VI",
+  "VII",
+  "VIII",
+  "IX",
+  "X",
+  "XI",
+]
