@@ -1,3 +1,9 @@
+:root {
+  --second: 1s;
+  --minute: calc(var(--second) * 60);
+  --hour: calc(var(--minute) * 60);
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -279,6 +285,11 @@ a.collapse {
 }
 
 .clock {
+  --setTimeHour: 16;
+  --setTimeMinute: 20;
+  --timeShiftHour: calc(var(--setTimeHour) * var(--hour));
+  --timeShiftMinute: calc(var(--setTimeMinute) * var(--minute));
+
   width: 480px;
   height: 480px;
   border: 10px solid #808080;
@@ -343,7 +354,7 @@ a.collapse {
   }
 }
 
-.center {
+.arm {
   width: 8px;
   height: 8px;
   background-color: #808080;
@@ -351,33 +362,58 @@ a.collapse {
   position: absolute;
   bottom: 50%;
   left: 50%;
+  * {
+    bottom: 50%;
+    left: 50%;
+    position: absolute;
+    transform-origin: top left;
+  }
 }
 
 .second {
   border: 1px solid red;
   width: 200px;
-  bottom: 50%;
-  left: 50%;
-  position: absolute;
-  transform-origin: top left;
-  -webkit-animation: spin 60s linear infinite;
-  -moz-animation: spin 60s linear infinite;
-  animation: spin 60s linear infinite;
+  -webkit-animation: rotate var(--minute) linear infinite;
+  -moz-animation: rotate var(--minute) linear infinite;
+  animation: rotate var(--minute) steps(60) infinite;
+}
+.hour {
+  border: 1px solid blue;
+  width: 150px;
+  -webkit-animation: rotate calc(var(--hour) * 12) linear infinite;
+  -moz-animation: rotate calc(var(--hour) * 12) linear infinite;
+  animation: rotate calc(var(--hour) * 12) linear infinite;
+  animation-delay: calc(var(--timeShiftHour) * -1);
 }
 
-@-moz-keyframes spin {
-  100% {
-    -moz-transform: rotate(360deg);
+.minute {
+  border: 1px solid #e0e0e0;
+  width: 180px;
+  animation: rotate calc(var(--minute) * 60) linear infinite;
+  animation-delay: calc(var(--timeShiftMinute) * -1);
+}
+
+@-moz-keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
   }
 }
-@-webkit-keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
+@-webkit-keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
   }
 }
-@keyframes spin {
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(1turn);
   }
 }

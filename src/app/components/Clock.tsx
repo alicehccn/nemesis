@@ -31,7 +31,9 @@ const Clock: React.FC = () => {
         {CLOCK_NUMERALS.map((num) => (
           <time key={num}>{num}</time>
         ))}
-        <div className="center">
+        <div className="arm">
+          <div className="hour"></div>
+          <div className="minute"></div>
           <div className="second"></div>
         </div>
       </div>
