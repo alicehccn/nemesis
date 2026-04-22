@@ -380,18 +380,18 @@ a.collapse {
 .hour {
   border: 2px solid blue;
   width: 150px;
-  -webkit-animation: rotate calc(var(--hour) * 12) steps(12) infinite;
-  -moz-animation: rotate calc(var(--hour) * 12) steps(12) infinite;
-  animation: rotate calc(var(--hour) * 12) steps(12) infinite;
+  -webkit-animation: rotate calc(var(--hour) * 12) linear infinite;
+  -moz-animation: rotate calc(var(--hour) * 12) linear infinite;
+  animation: rotate calc(var(--hour) * 12) linear infinite;
   animation-delay: calc((var(--timeShiftHour) + var(--timeShiftMinute)) * -1);
 }
 
 .minute {
   border: 1px solid #e0e0e0;
   width: 180px;
-  -webkit-animation: rotate calc(var(--minute) * 60) steps(60) infinite;
-  -moz-animation: rotate calc(var(--minute) * 60) steps(60) infinite;
-  animation: rotate calc(var(--minute) * 60) steps(60) infinite;
+  -webkit-animation: rotate calc(var(--minute) * 60) linear infinite;
+  -moz-animation: rotate calc(var(--minute) * 60) linear infinite;
+  animation: rotate calc(var(--minute) * 60) linear infinite;
   animation-delay: calc(var(--timeShiftMinute) * -1);
 }
 
