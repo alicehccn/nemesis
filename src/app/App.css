@@ -296,14 +296,13 @@ a.collapse {
   font-family: "Times New Roman", Times, serif;
   font-size: large;
   color: #4f4e4e;
-  /* background-color: #4f4e4e; */
 
   time {
     --_w: var(--clockSize);
     --_r: calc((var(--_w) - var(--_sz)) / 2);
     --_x: calc(var(--_r) + (var(--_r) * cos(var(--_d))));
     --_y: calc(var(--_r) + (var(--_r) * sin(var(--_d))));
-    --_sz: 5cqi;
+    --_sz: calc((var(--clockSize) / 60) * 8);
     display: grid;
     height: var(--_sz);
     left: var(--_x);
@@ -366,7 +365,7 @@ a.collapse {
 
   .second {
     border: 1px solid red;
-    height: calc(var(--clockSize) / 2.2);
+    height: calc(var(--clockSize) / 2.5);
     -webkit-animation: rotate var(--minute) steps(60) infinite;
     -moz-animation: rotate var(--minute) steps(60) infinite;
     animation: rotate var(--minute) steps(60) infinite;
@@ -382,8 +381,8 @@ a.collapse {
   }
 
   .minute {
-    border: 1px solid indigo;
-    height: calc(var(--clockSize) / 2.5);
+    border: 2px solid tan;
+    height: calc(var(--clockSize) / 2.8);
     -webkit-animation: rotate calc(var(--hour)) linear infinite;
     -moz-animation: rotate calc(var(--hour)) linear infinite;
     animation: rotate calc(var(--hour)) linear infinite;
