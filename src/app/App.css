@@ -386,9 +386,9 @@ a.collapse {
   .minute {
     border: 1px solid #e0e0e0;
     height: 180px;
-    -webkit-animation: rotate calc(var(--minute) * 60) linear infinite;
-    -moz-animation: rotate calc(var(--minute) * 60) linear infinite;
-    animation: rotate calc(var(--minute) * 60) linear infinite;
+    -webkit-animation: rotate calc(var(--hour)) linear infinite;
+    -moz-animation: rotate calc(var(--hour)) linear infinite;
+    animation: rotate calc(var(--hour)) linear infinite;
     animation-delay: calc(var(--timeShiftMinute) * -1);
   }
 }
