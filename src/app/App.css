@@ -285,10 +285,10 @@ a.collapse {
 }
 
 .clock {
-  --setTimeHour: 16;
-  --setTimeMinute: 20;
-  --timeShiftHour: calc(var(--setTimeHour) * var(--hour));
-  --timeShiftMinute: calc(var(--setTimeMinute) * var(--minute));
+  animation-delay: -10s;
+  --timeShiftHour: calc(var(--_dh) * var(--hour));
+  --timeShiftMinute: calc(var(--_dm) * var(--minute));
+  --timeShiftSecond: calc(var(--_ds) * var(--second));
 
   width: 480px;
   height: 480px;
@@ -357,7 +357,7 @@ a.collapse {
 .arm {
   width: 8px;
   height: 8px;
-  background-color: #808080;
+  /* background-color: #808080; */
   border-radius: 50%;
   position: absolute;
   bottom: 50%;
@@ -373,24 +373,29 @@ a.collapse {
 .second {
   border: 1px solid red;
   width: 200px;
-  -webkit-animation: rotate var(--minute) linear infinite;
-  -moz-animation: rotate var(--minute) linear infinite;
+  -webkit-animation: rotate var(--minute) steps(60) infinite;
+  -moz-animation: rotate var(--minute) steps(60) infinite;
   animation: rotate var(--minute) steps(60) infinite;
+  animation-delay: calc(var(--timeShiftSecond) * -1);
 }
 .hour {
-  border: 1px solid blue;
+  border: 2px solid blue;
   width: 150px;
-  -webkit-animation: rotate calc(var(--hour) * 12) linear infinite;
-  -moz-animation: rotate calc(var(--hour) * 12) linear infinite;
-  animation: rotate calc(var(--hour) * 12) linear infinite;
-  animation-delay: calc(var(--timeShiftHour) * -1);
+  -webkit-animation: rotate calc(var(--hour) * 60) linear infinite;
+  -moz-animation: rotate calc(var(--hour) * 60) linear infinite;
+  animation: rotate calc(var(--hour) * 60) linear infinite;
+  animation-delay: calc((var(--timeShiftHour) + var(--timeShiftMinute)) * -1);
 }
 
 .minute {
   border: 1px solid #e0e0e0;
   width: 180px;
+  -webkit-animation: rotate calc(var(--minute) * 60) linear infinite;
+  -moz-animation: rotate calc(var(--minute) * 60) linear infinite;
   animation: rotate calc(var(--minute) * 60) linear infinite;
-  animation-delay: calc(var(--timeShiftMinute) * -1);
+  animation-delay: calc(
+    (var(--timeShiftMinute) + (var(--timeShiftSecond))) * -1
+  );
 }
 
 @-moz-keyframes rotate {

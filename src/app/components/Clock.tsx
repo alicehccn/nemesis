@@ -1,7 +1,11 @@
-import { useEffect, useRef } from "react";
+import { CSSProperties, useEffect, useRef, useState } from "react";
 import { CLOCK_INTERVAL, CLOCK_NUMERALS } from "../constants";
 
 const Clock: React.FC = () => {
+  const [hour, setHour] = useState<number>(new Date().getHours());
+  const [minute, setMinute] = useState<number>(new Date().getMinutes());
+  const [second, setSecond] = useState<number>(new Date().getSeconds());
+
   function useInterval(callback: () => void, delay: number) {
     const savedCallback = useRef(callback);
 
@@ -21,13 +25,21 @@ const Clock: React.FC = () => {
   }
 
   useInterval(() => {
-    const today = new Date();
-    const now = `${today.getHours()}: ${today.getMinutes()}: ${today.getSeconds()}`;
-    // console.log(now)
+    if (minute !== new Date().getMinutes()) {
+      setHour(new Date().getHours());
+      setMinute(new Date().getMinutes());
+      setSecond(new Date().getSeconds());
+    }
   }, CLOCK_INTERVAL);
+
   return (
     <div className="clock-container">
-      <div className="clock">
+      <div
+        className="clock"
+        style={
+          { "--_dh": hour, "--_dm": minute, "--_ds": second } as CSSProperties
+        }
+      >
         {CLOCK_NUMERALS.map((num) => (
           <time key={num}>{num}</time>
         ))}
