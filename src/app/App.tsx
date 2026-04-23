@@ -13,13 +13,12 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <div className="App-header">
-        <div className="logo">
-          <Image width={200} height={100} src="/logo2.png" alt="alice-huang" />
-        </div>
+      <div className="logo">
+        <Image width={200} height={100} src="/logo2.png" alt="alice-huang" />
       </div>
       <Clock />
-      <div className="App-content">
+
+      <div className="actions">
         <APOD
           modalIsOpen={selectedIndex === 1}
           closeModal={() => setSelectedIndex(0)}
