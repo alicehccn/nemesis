@@ -6,18 +6,19 @@ import { Weather } from "./components/Weather";
 import { Epic } from "./components/Epic";
 import { useState } from "react";
 import Image from "next/image";
+import Clock from "./components/Clock";
 
 const App: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
     <div className="App">
-      <div className="App-header">
-        <div className="logo">
-          <Image width={200} height={100} src="/logo2.png" alt="alice-huang" />
-        </div>
+      <div className="logo">
+        <Image width={200} height={100} src="/logo2.png" alt="alice-huang" />
       </div>
-      <div className="App-content">
+      <Clock />
+
+      <div className="actions">
         <APOD
           modalIsOpen={selectedIndex === 1}
           closeModal={() => setSelectedIndex(0)}
@@ -45,10 +46,10 @@ const App: React.FC = () => {
             <Image width={40} height={40} src="/email.png" alt="email" />
           </a>
         </div>
+        <footer>
+          <div>&copy; 2025-2026 Alice Huang</div>
+        </footer>
       </div>
-      <footer>
-        <div>&copy; 2025-2026 Alice Huang</div>
-      </footer>
     </div>
   );
 };
