@@ -7,7 +7,7 @@ const Clock: React.FC = () => {
   const hour = today.getHours();
   const minute = today.getMinutes();
   const second = today.getSeconds();
-  console.log(today, hour, minute, second)
+  console.log(today, hour, minute, second);
 
   return (
     <div className="clock-container">
