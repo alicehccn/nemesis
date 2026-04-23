@@ -14,7 +14,7 @@ const Clock: React.FC = () => {
       <div
         className="clock"
         style={
-          { "--_dh": hour, "--_dm": minute, "--_ds": second } as CSSProperties
+          { "--_dh": 10, "--_dm": 20, "--_ds": second } as CSSProperties
         }
       >
         {CLOCK_NUMERALS.map((num) => (
