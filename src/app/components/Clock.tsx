@@ -8,13 +8,15 @@ const Clock: React.FC = () => {
   const minute = today.getMinutes();
   const second = today.getSeconds();
   console.log(today, hour, minute, second);
-
+  if (!today) {
+    return null;
+  }
   return (
     <div className="clock-container">
       <div
         className="clock"
         style={
-          { "--_dh": 10, "--_dm": 20, "--_ds": second } as CSSProperties
+          { "--_dh": hour, "--_dm": minute, "--_ds": second } as CSSProperties
         }
       >
         {CLOCK_NUMERALS.map((num) => (
