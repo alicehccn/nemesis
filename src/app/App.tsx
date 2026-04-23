@@ -46,10 +46,10 @@ const App: React.FC = () => {
             <Image width={40} height={40} src="/email.png" alt="email" />
           </a>
         </div>
+        <footer>
+          <div>&copy; 2025-2026 Alice Huang</div>
+        </footer>
       </div>
-      <footer>
-        <div>&copy; 2025-2026 Alice Huang</div>
-      </footer>
     </div>
   );
 };
