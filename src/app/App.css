@@ -3,7 +3,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-family: "Gill Sans Extrabold", sans-serif;
   background-image: url("../../public/desk.jpg");
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
   background-size: cover;
   background-repeat: no-repeat;
   line-height: 1.2;
@@ -288,13 +288,13 @@ a.collapse {
 
   width: var(--clockSize);
   height: var(--clockSize);
-  border: 10px solid #808080;
+  border: 8px solid #808080;
   border-radius: 50%;
   position: relative;
   font-family: "Times New Roman", Times, serif;
-  font-size: large;
-  color: #808080;
-  background-color: rgb(244, 244, 244, 0.6);
+  font-size: larger;
+  color: #4f4e4e;
+  background-color: rgb(224, 224, 224, 0.5);
 
   time {
     --_w: var(--clockSize);
@@ -380,7 +380,7 @@ a.collapse {
   }
 
   .minute {
-    border: 2px solid tan;
+    border: 2px solid gray;
     height: calc(var(--clockSize) / 2.8);
     -webkit-animation: rotate calc(var(--hour)) linear infinite;
     -moz-animation: rotate calc(var(--hour)) linear infinite;
