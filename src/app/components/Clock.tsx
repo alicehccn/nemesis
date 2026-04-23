@@ -1,16 +1,24 @@
-import { CSSProperties } from "react";
+import { CSSProperties, useEffect, useState } from "react";
 import { CLOCK_NUMERALS } from "../constants";
 
 const Clock: React.FC = () => {
-  const today = new Date();
+  const [hour, setHour] = useState<number>();
+  const [minute, setMinute] = useState<number>();
+  const [second, setSecond] = useState<number>();
 
-  const hour = today.getHours();
-  const minute = today.getMinutes();
-  const second = today.getSeconds();
-  console.log(today, hour, minute, second);
-  if (!today) {
-    return null;
+  useEffect(() => {
+    if (!hour) {
+      const now = new Date();
+      setHour(now.getHours());
+      setMinute(now.getMinutes());
+      setSecond(now.getSeconds());
+    }
+  }, [hour, minute, second]);
+
+  if (!hour || !minute || !second) {
+    return;
   }
+
   return (
     <div className="clock-container">
       <div
