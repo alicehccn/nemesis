@@ -3,9 +3,11 @@ import { CLOCK_NUMERALS } from "../constants";
 
 const Clock: React.FC = () => {
   const today = new Date();
+
   const hour = today.getHours();
   const minute = today.getMinutes();
   const second = today.getSeconds();
+  console.log(today, hour, minute, second)
 
   return (
     <div className="clock-container">
