@@ -14,9 +14,9 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <div className="logo">
-        <Image width={200} height={100} src="/logo2.png" alt="alice-huang" />
+        <Image width={200} height={100} src="/logo3.png" alt="alice-huang" />
       </div>
-      <Clock />
+      {/* <Clock /> */}
 
       <div className="actions">
         <APOD
