@@ -1,12 +1,11 @@
 "use client";
 
 import { APOD } from "./components/Apod";
-import { SplitButton } from "./components/Menu";
+import { Catalog } from "./components/Catalog";
 import { Weather } from "./components/Weather";
 import { Epic } from "./components/Epic";
 import { useState } from "react";
 import Image from "next/image";
-import Clock from "./components/Clock";
 
 const App: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -16,7 +15,6 @@ const App: React.FC = () => {
       <div className="logo">
         <Image width={200} height={100} src="/logo3.png" alt="alice-huang" />
       </div>
-      {/* <Clock /> */}
 
       <div className="actions">
         <APOD
@@ -31,7 +29,7 @@ const App: React.FC = () => {
           modalIsOpen={selectedIndex === 3}
           closeModal={() => setSelectedIndex(0)}
         />
-        <SplitButton
+        <Catalog
           setSelectedIndex={setSelectedIndex}
           selectedIndex={selectedIndex}
         />
@@ -47,7 +45,7 @@ const App: React.FC = () => {
           </a>
         </div>
         <footer>
-          <div>&copy; 2025-2026 Alice Huang</div>
+          <div>&copy; 2026 Alice Huang</div>
         </footer>
       </div>
     </div>
