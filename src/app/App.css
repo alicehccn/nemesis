@@ -59,8 +59,7 @@ a.collapse {
   }
 
   .logo {
-    margin: 40px;
-    position: fixed;
+    margin: 20px 40px 0;
     img {
       width: 240px;
       height: auto;
@@ -72,35 +71,20 @@ a.collapse {
 
   .actions {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     margin: auto;
-    .MuiButtonGroup-root,
-    .MuiInputBase-root,
-    .MuiTextField-root {
-      width: 430px;
-      margin-bottom: 20px;
-      button {
-        padding: 15px;
-        border-color: #808080 !important;
-        background-color: transparent !important;
-        color: #808080 !important;
-        &:first-child {
-          width: 100%;
-        }
-        font-size: 20px;
-        font-weight: 600;
-      }
+    button {
+      width: 250px;
+      height: 300px;
+      margin: 0 10px;
+      padding: 20px;
+      border-color: #808080 !important;
+      background-color: transparent !important;
+      color: #808080 !important;
+      font-size: 20px;
+      font-weight: 600;
       @media screen and (max-width: 600px) {
-        margin: auto;
-        width: 90%;
-      }
-    }
-    .social {
-      text-align: center;
-      width: 430px;
-      img,
-      svg {
-        margin: 20px;
       }
     }
   }
@@ -109,9 +93,18 @@ a.collapse {
     color: #808080;
     font-size: 12px;
     margin: 10px;
-    width: 430px;
+    width: 400px;
     margin: auto;
     text-align: center;
+
+    .social {
+      margin: auto;
+      text-align: center;
+      img,
+      svg {
+        margin: 20px;
+      }
+    }
   }
 }
 

@@ -13,7 +13,13 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <div className="logo">
-        <Image width={200} height={100} src="/logo3.png" alt="alice-huang" />
+        <Image
+          width={200}
+          height={100}
+          src="/logo3.png"
+          alt="alice-huang"
+          priority
+        />
       </div>
 
       <div className="actions">
@@ -33,6 +39,8 @@ const App: React.FC = () => {
           setSelectedIndex={setSelectedIndex}
           selectedIndex={selectedIndex}
         />
+      </div>
+      <footer>
         <div className="social">
           <a target="_blank" href="https://www.github.com/alicehccn/">
             <Image width={40} height={40} src="/github.png" alt="github" />
@@ -44,10 +52,8 @@ const App: React.FC = () => {
             <Image width={40} height={40} src="/email.png" alt="email" />
           </a>
         </div>
-        <footer>
-          <div>&copy; 2026 Alice Huang</div>
-        </footer>
-      </div>
+        <div>&copy; 2026 Alice Huang</div>
+      </footer>
     </div>
   );
 };
