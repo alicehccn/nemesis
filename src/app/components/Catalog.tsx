@@ -17,7 +17,7 @@ export const Catalog: React.FC<CatalogProps> = ({
   };
 
   return (
-    <div>
+    <>
       {MENU_OPTIONS.map((option, index) => (
         <Button
           key={option}
@@ -30,6 +30,6 @@ export const Catalog: React.FC<CatalogProps> = ({
           {option}
         </Button>
       ))}
-    </div>
+    </>
   );
 };
