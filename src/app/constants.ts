@@ -23,12 +23,7 @@ export const composeEpicImageUrl = (
 ) =>
   `https://epic.gsfc.nasa.gov/archive/${color}/${format(date, "yyyy/MM/dd")}/png/${filename}.png`;
 
-export const MENU_OPTIONS = [
-  "DEMO",
-  "APOD (Astronomy Picture of the Day)",
-  "EPIC (Earth Polychromatic Imaging Camera)",
-  "NOAA (National Oceanic & Atmosphere Adminstration)",
-];
+export const MENU_OPTIONS = ["Astronomy", "Earth", "NOAA"];
 
 export const EPIC_INTERVAL = 3600;
 

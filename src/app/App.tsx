@@ -1,12 +1,11 @@
 "use client";
 
 import { APOD } from "./components/Apod";
-import { SplitButton } from "./components/Menu";
+import { Catalog } from "./components/Catalog";
 import { Weather } from "./components/Weather";
 import { Epic } from "./components/Epic";
 import { useState } from "react";
 import Image from "next/image";
-import Clock from "./components/Clock";
 
 const App: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -14,9 +13,14 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <div className="logo">
-        <Image width={200} height={100} src="/logo2.png" alt="alice-huang" />
+        <Image
+          width={200}
+          height={100}
+          src="/logo3.png"
+          alt="alice-huang"
+          priority
+        />
       </div>
-      <Clock />
 
       <div className="actions">
         <APOD
@@ -31,10 +35,12 @@ const App: React.FC = () => {
           modalIsOpen={selectedIndex === 3}
           closeModal={() => setSelectedIndex(0)}
         />
-        <SplitButton
+        <Catalog
           setSelectedIndex={setSelectedIndex}
           selectedIndex={selectedIndex}
         />
+      </div>
+      <footer>
         <div className="social">
           <a target="_blank" href="https://www.github.com/alicehccn/">
             <Image width={40} height={40} src="/github.png" alt="github" />
@@ -46,10 +52,8 @@ const App: React.FC = () => {
             <Image width={40} height={40} src="/email.png" alt="email" />
           </a>
         </div>
-        <footer>
-          <div>&copy; 2025-2026 Alice Huang</div>
-        </footer>
-      </div>
+        <div>&copy; 2026 Alice Huang</div>
+      </footer>
     </div>
   );
 };
