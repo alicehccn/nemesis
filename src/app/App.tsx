@@ -4,11 +4,28 @@ import { APOD } from "./components/Apod";
 import { Catalog } from "./components/Catalog";
 import { Weather } from "./components/Weather";
 import { Epic } from "./components/Epic";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { fetchApodApi } from "./constants";
+import { ApodResponse } from "./types";
 
 const App: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const [asset, setAsset] = useState<ApodResponse>();
+
+  useEffect(() => {
+    const today = new Date();
+    if (!asset) {
+      fetch(fetchApodApi(today))
+        .then((response) =>
+          response?.json().then((json) => {
+            setAsset(json);
+          }),
+        )
+        .catch((error) => console.error(error));
+    }
+  }, [asset]);
 
   return (
     <div className="App">
@@ -26,6 +43,7 @@ const App: React.FC = () => {
         <APOD
           modalIsOpen={selectedIndex === 1}
           closeModal={() => setSelectedIndex(0)}
+          asset={asset}
         />
         <Epic
           modalIsOpen={selectedIndex === 2}

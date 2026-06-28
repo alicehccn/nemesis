@@ -8,40 +8,40 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs, { Dayjs } from "dayjs";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Image from "next/image";
-import { ModalProps } from "../types";
+import { ApodResponse, ModalProps } from "../types";
+import { PickerValue } from "@mui/x-date-pickers/internals";
 
-interface ApodResponse {
-  date: string;
-  explanation: string;
-  hdurl: string;
-  media_type: string;
-  service_version: string;
-  title: string;
-  url: string;
-  copyright?: string;
-}
-
-export const APOD: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
+export const APOD: React.FC<ModalProps> = ({
+  modalIsOpen,
+  closeModal,
+  asset,
+}) => {
   const today = new Date();
-  const [asset, setAsset] = useState<ApodResponse>();
   const [value, setValue] = useState<Dayjs>(dayjs(asset?.date) ?? dayjs(today));
-
-  const [assetIndex, setAssetIndex] = useState(1);
+  const [currentAsset, setCurrentAsset] = useState<ApodResponse | undefined>(
+    asset,
+  );
 
   useEffect(() => {
+    if (asset && !currentAsset) {
+      setCurrentAsset(asset);
+    }
+  }, [asset, currentAsset]);
+
+  if (!currentAsset) {
+    return;
+  }
+
+  const handleDateChange = (newValue: PickerValue) => {
+    setValue(dayjs(newValue));
     fetch(fetchApodApi(value.toDate()))
       .then((response) =>
         response?.json().then((json) => {
-          setAsset(json);
-          setAssetIndex(assetIndex);
+          setCurrentAsset(json);
         }),
       )
       .catch((error) => console.error(error));
-  }, [value, assetIndex]);
-
-  if (!asset) {
-    return;
-  }
+  };
 
   return (
     <ReactModal
@@ -60,35 +60,35 @@ export const APOD: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
       <div className="apod">
         <Accordion>
           <AccordionSummary aria-controls="panel1-content" id="panel1-header">
-            <h2>{asset?.title}</h2>
+            <h2>{currentAsset?.title}</h2>
             <ExpandMoreIcon width="30px" height="100%" className="expand" />
           </AccordionSummary>
           <AccordionDetails>
-            <p>{asset?.explanation}</p>
+            <p>{currentAsset?.explanation}</p>
           </AccordionDetails>
         </Accordion>
 
-        {asset?.media_type === "image" && (
-          <Image alt="apod" src={asset?.url} width={1000} height={500} />
+        {currentAsset?.media_type === "image" && (
+          <Image alt="apod" src={currentAsset?.url} width={1000} height={500} />
         )}
-        {asset?.media_type === "html" && (
-          <embed type="text/html" src={asset?.url} />
+        {currentAsset?.media_type === "html" && (
+          <embed type="text/html" src={currentAsset?.url} />
         )}
-        {asset?.media_type === "video" && (
-          <iframe src={asset?.url + "?autoplay=1"} />
+        {currentAsset?.media_type === "video" && (
+          <iframe src={currentAsset?.url + "?autoplay=1"} />
         )}
         <Box width="100%" display="flex" justifyContent="space-around">
           <small>
             <a target="_blank" href={APOD_HOMEPAGE}>
-              &copy; {asset?.copyright ?? "NASA"}
+              &copy; {currentAsset?.copyright ?? "NASA"}
             </a>
           </small>
-          {asset?.date && (
+          {currentAsset?.date && (
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
                 label="Search date"
                 value={value}
-                onChange={(newValue) => setValue(dayjs(newValue))}
+                onChange={(newValue) => handleDateChange(newValue)}
                 className="date-picker"
                 maxDate={dayjs(today)}
               />
