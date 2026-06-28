@@ -23,7 +23,14 @@ export const composeEpicImageUrl = (
 ) =>
   `https://epic.gsfc.nasa.gov/archive/${color}/${format(date, "yyyy/MM/dd")}/png/${filename}.png`;
 
-export const MENU_OPTIONS = ["Astronomy", "Earth", "NOAA"];
+export const MENU_OPTIONS = [
+  {
+    title: "Astronomy",
+    url: "https://apod.nasa.gov/apod/image/2505/NGC1360_Chander_4310.jpg",
+  },
+  { title: "Earth", url: "" },
+  { title: "NOAA", url: "" },
+];
 
 export const EPIC_INTERVAL = 3600;
 
@@ -49,58 +56,6 @@ export const TAB_PROPS = (index: number) => {
     label: EPIC_TAB[index].label,
   };
 };
-
-export const SKILL_MAP = [
-  {
-    subject: "Frontend",
-    items: [
-      { label: "Typescript", value: 100 },
-      { label: "HTML/CSS", value: 20 },
-      { label: "React", value: 100 },
-      { label: "XHR", value: 80 },
-      { label: "gRPC", value: 40 },
-      { label: "Expo", value: 60 },
-      { label: "D3.js", value: 30 },
-      { label: "Jest", value: 60 },
-    ],
-  },
-  {
-    subject: "Backend",
-    items: [
-      { label: "NodeJS", value: 100 },
-      { label: "SQL/NoSQL", value: 80 },
-      { label: "Python", value: 60 },
-      { label: "Golang", value: 40 },
-      { label: "Rust", value: 30 },
-      { label: "Protobuf", value: 60 },
-      { label: "Express", value: 100 },
-    ],
-  },
-  {
-    subject: "Tool",
-    items: [
-      { label: "AWS", value: 100 },
-      { label: "Docker", value: 100 },
-      { label: "Heroku", value: 80 },
-      { label: "Vercel", value: 60 },
-      { label: "Github", value: 100 },
-      { label: "CircleCI", value: 40 },
-      { label: "Appetize", value: 60 },
-      { label: "Mapbox", value: 80 },
-      { label: "Datadog", value: 60 },
-    ],
-  },
-];
-
-export const PIE_CHART = [
-  "#C6C0B9",
-  "#D3D3D3",
-  "#C4C4C4",
-  "#929292",
-  "#878787",
-  "#6e6e6e",
-  "#666666",
-];
 
 export const MAIN_LAYER = (source: string): Layer => {
   return {

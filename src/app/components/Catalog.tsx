@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import Button from "@mui/material/Button";
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+import ButtonBase from "@mui/material/ButtonBase";
+import Typography from "@mui/material/Typography";
+
 import { MENU_OPTIONS } from "../constants";
 
 interface CatalogProps {
@@ -20,14 +25,14 @@ export const Catalog: React.FC<CatalogProps> = ({
     <>
       {MENU_OPTIONS.map((option, index) => (
         <Button
-          key={option}
+          key={option.title}
           variant="contained"
           onClick={() => {
             handleButtonClick(index);
           }}
           size="large"
         >
-          {option}
+          {option.title}
         </Button>
       ))}
     </>

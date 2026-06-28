@@ -17,7 +17,6 @@ import {
 import Switch from "@mui/material/Switch";
 import ReplayIcon from "@mui/icons-material/Replay";
 import mapboxgl, { Point } from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
 import { Feature, GeoJSON } from "geojson";
 
 import CloseIcon from "@mui/icons-material/Close";
