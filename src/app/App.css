@@ -69,7 +69,6 @@ a.collapse {
   .actions {
     display: inline-block;
     margin: auto;
-    width: 100%;
     button {
       width: 360px;
       height: 240px;
