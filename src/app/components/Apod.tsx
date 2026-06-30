@@ -8,10 +8,10 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs, { Dayjs } from "dayjs";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Image from "next/image";
-import { ApodResponse, ModalProps } from "../types";
+import { ApodProps, ApodResponse } from "../types";
 import { PickerValue } from "@mui/x-date-pickers/internals";
 
-export const APOD: React.FC<ModalProps> = ({
+export const APOD: React.FC<ApodProps> = ({
   modalIsOpen,
   closeModal,
   asset,

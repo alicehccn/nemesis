@@ -17,6 +17,8 @@ import {
 import Switch from "@mui/material/Switch";
 import ReplayIcon from "@mui/icons-material/Replay";
 import mapboxgl, { Point } from "mapbox-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+
 import { Feature, GeoJSON } from "geojson";
 
 import CloseIcon from "@mui/icons-material/Close";
@@ -33,31 +35,18 @@ import {
   Button,
   IconButton,
 } from "@mui/material";
-import { ModalProps } from "../types";
+import { NoaaProps } from "../types";
 
-interface AlertGroup {
-  features: Feature[];
-  updated: string;
-  type: "FeatureCollection";
-}
-
-export const Weather: React.FC<ModalProps> = ({ modalIsOpen, closeModal }) => {
-  const [alerts, setAlerts] = useState<AlertGroup>();
-  const [reloading, setReload] = useState(false);
+export const Weather: React.FC<NoaaProps> = ({
+  modalIsOpen,
+  closeModal,
+  alerts,
+}) => {
   const [darkMode, setDarkMode] = useState<boolean>(false);
   const label = { inputProps: { "aria-label": "Dark Mode" } };
   const [alertGroup, setAlertGroup] = useState<Feature[]>();
-  useEffect(() => {
-    if (!alerts || !!reloading) {
-      fetch(fetchWeatherApi())
-        .then((response) => response?.json())
-        .then((json) => {
-          setAlerts(json);
-        })
-        .catch((error) => console.error(error));
-    }
-    setReload(false);
-  }, [alerts, reloading]);
+  const [reloading, setReload] = useState(false);
+
   if (!alerts) {
     return;
   }

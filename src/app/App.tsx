@@ -6,26 +6,58 @@ import { Weather } from "./components/Weather";
 import { Epic } from "./components/Epic";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { fetchApodApi } from "./constants";
-import { ApodResponse } from "./types";
+import {
+  EPIC_COLOR,
+  fetchApodApi,
+  fetchEpicApi,
+  fetchWeatherApi,
+} from "./constants";
+import { AlertGroup, ApodResponse, EpicResponse } from "./types";
+import _ from "lodash";
 
 const App: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-
-  const [asset, setAsset] = useState<ApodResponse>();
+  const [reloading, setReload] = useState(false);
+  const [alerts, setAlerts] = useState<AlertGroup>();
+  const [apodAsset, setApodAsset] = useState<ApodResponse>();
+  const [epicAsset, setEpicAsset] = useState<EpicResponse[]>([]);
 
   useEffect(() => {
     const today = new Date();
-    if (!asset) {
+    if (!apodAsset) {
       fetch(fetchApodApi(today))
         .then((response) =>
           response?.json().then((json) => {
-            setAsset(json);
+            setApodAsset(json);
           }),
         )
         .catch((error) => console.error(error));
     }
-  }, [asset]);
+  }, [apodAsset]);
+
+  useEffect(() => {
+    if (_.isEmpty(epicAsset)) {
+      fetch(fetchEpicApi(EPIC_COLOR.NATURAL))
+        .then((response) =>
+          response?.json().then((json) => {
+            setEpicAsset(json);
+          }),
+        )
+        .catch((error) => console.error(error));
+    }
+  }, [epicAsset]);
+
+  useEffect(() => {
+    if (!alerts && !reloading) {
+      fetch(fetchWeatherApi())
+        .then((response) => response?.json())
+        .then((json) => {
+          setAlerts(json);
+        })
+        .catch((error) => console.error(error));
+    }
+    setReload(false);
+  }, [alerts, reloading]);
 
   return (
     <div className="App">
@@ -43,15 +75,17 @@ const App: React.FC = () => {
         <APOD
           modalIsOpen={selectedIndex === 1}
           closeModal={() => setSelectedIndex(0)}
-          asset={asset}
+          asset={apodAsset}
         />
         <Epic
           modalIsOpen={selectedIndex === 2}
           closeModal={() => setSelectedIndex(0)}
+          assets={epicAsset}
         />
         <Weather
           modalIsOpen={selectedIndex === 3}
           closeModal={() => setSelectedIndex(0)}
+          alerts={alerts}
         />
         <Catalog
           setSelectedIndex={setSelectedIndex}
